@@ -1,5 +1,6 @@
 vim.lsp.enable({ "lua-ls", "gopls", "ts-ls", "clangd", "css-ls", "prisma" })
 
+-c- require("core.lazy")
 vim.diagnostic.config({
 	virtual_text = true,
 	underline = true,
