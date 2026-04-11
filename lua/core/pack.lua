@@ -13,6 +13,7 @@ vim.pack.add({
 	gh("echasnovski/mini.nvim"),
 	gh("saghen/blink.cmp"),
 	{ src = gh("ThePrimeagen/harpoon"), version = "harpoon2" },
+	gh("ibhagwan/fzf-lua"),
 })
 
 -- Gruvbox
@@ -77,7 +78,7 @@ require("blink.cmp").setup({
 	signature = { enabled = true },
 })
 
--- Mason
+-- Harpoon
 require("harpoon").setup()
 
 vim.keymap.set("n", "<leader>a", function()
@@ -103,4 +104,26 @@ end)
 
 vim.keymap.set("n", "<A-4>", function()
 	require("harpoon"):list():select(4)
+end)
+
+-- Fzf Lua
+
+require("fzf-lua").setup()
+vim.keymap.set("n", "<leader>ff", function()
+	require("fzf-lua").files()
+end)
+vim.keymap.set("n", "<leader>fn", function()
+	require("fzf-lua").files({ cwd = "~/.config/nvim" })
+end)
+vim.keymap.set("n", "<leader>fh", function()
+	require("fzf-lua").helptags()
+end)
+vim.keymap.set("n", "<leader><leader>", function()
+	require("fzf-lua").buffers()
+end)
+vim.keymap.set("n", "<leader>fw", function()
+	require("fzf-lua").grep()
+end)
+vim.keymap.set("n", "<leader>fg", function()
+	require("fzf-lua").live_grep()
 end)
