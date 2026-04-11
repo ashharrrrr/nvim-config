@@ -3,6 +3,7 @@ function gh(text)
 end
 
 vim.pack.add({
+	gh("nvim-lua/plenary.nvim"),
 	gh("sainnhe/gruvbox-material"),
 	gh("echasnovski/mini.icons"),
 	gh("stevearc/oil.nvim"),
@@ -11,6 +12,7 @@ vim.pack.add({
 	gh("stevearc/conform.nvim"),
 	gh("echasnovski/mini.nvim"),
 	gh("saghen/blink.cmp"),
+	{ src = gh("ThePrimeagen/harpoon"), version = "harpoon2" },
 })
 
 -- Gruvbox
@@ -74,3 +76,31 @@ require("blink.cmp").setup({
 	fuzzy = { implementation = "prefer_rust_with_warning" },
 	signature = { enabled = true },
 })
+
+-- Mason
+require("harpoon").setup()
+
+vim.keymap.set("n", "<leader>a", function()
+	require("harpoon"):list():add()
+end, { desc = "Harpoon Add" })
+
+vim.keymap.set("n", "<leader>e", function()
+	local harpoon = require("harpoon")
+	harpoon.ui:toggle_quick_menu(harpoon:list())
+end, { desc = "Harpoon List" })
+
+vim.keymap.set("n", "<A-1>", function()
+	require("harpoon"):list():select(1)
+end)
+
+vim.keymap.set("n", "<A-2>", function()
+	require("harpoon"):list():select(2)
+end)
+
+vim.keymap.set("n", "<A-3>", function()
+	require("harpoon"):list():select(3)
+end)
+
+vim.keymap.set("n", "<A-4>", function()
+	require("harpoon"):list():select(4)
+end)
