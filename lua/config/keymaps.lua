@@ -11,3 +11,5 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 vim.keymap.set("n", "<leader>ca", function()
 	vim.lsp.buf.code_action()
 end, { desc = "Code Actions" })
+
+vim.keymap.set("n", 'D', vim.lsp.buf.hover, { desc = "Show hover documentation" })

@@ -15,6 +15,10 @@ vim.pack.add({
 	{ src = gh("ThePrimeagen/harpoon"), version = "harpoon2" },
 	gh("nvim-telescope/telescope.nvim"),
 	gh("nvim-treesitter/nvim-treesitter"),
+  gh("pmizio/typescript-tools.nvim"),
+  gh("windwp/nvim-ts-autotag"),
+  gh("luckasranarison/tailwind-tools.nvim"),
+  gh("prisma/language-tools")
 })
 
 -- Gruvbox
@@ -34,6 +38,14 @@ require("lualine").setup()
 -- Mason
 require("mason").setup()
 
+-- ts-tools
+require("typescript-tools").setup()
+
+-- ts-autotag
+require("nvim-ts-autotag").setup()
+
+--tailwindcss
+require("tailwind-tools").setup()
 -- Conform
 require("conform").setup({
 	formatters_by_ft = {
@@ -67,7 +79,7 @@ require("mini.pairs").setup()
 
 -- Blink.cmp
 require("blink.cmp").setup({
-	keymap = { preset = "default" },
+	keymap = { preset = "super-tab" },
 	appearance = {
 		nerd_font_variant = "mono",
 	},
@@ -179,3 +191,5 @@ vim.api.nvim_create_autocmd("FileType", {
 		end
 	end,
 })
+
+
